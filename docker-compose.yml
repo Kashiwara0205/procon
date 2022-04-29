@@ -1,0 +1,7 @@
+version: '3'
+services:
+  app:
+    image: golang:1.18.1-buster
+    volumes:
+      - ./procon:/go/procon
+    tty: true
