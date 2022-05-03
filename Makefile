@@ -6,3 +6,5 @@ go_test:
 
 go_fmt:
 	docker exec -ti procon-app-1 bash -c "cd procon; go fmt ./..."
+	git add -A; 
+	git commit -m "fmt適用"
