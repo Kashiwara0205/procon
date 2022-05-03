@@ -2,9 +2,9 @@ package p21
 
 import "testing"
 
-func TestCalcMaxPerimeter (t *testing.T) {
+func TestCalcMaxPerimeter(t *testing.T) {
 	var a []int
-	if 0 != CalcMaxPerimeter(a){
+	if 0 != CalcMaxPerimeter(a) {
 		t.Errorf("配列の数が0なのに0以外の数字が返却されている")
 	}
 
@@ -19,12 +19,12 @@ func TestCalcMaxPerimeter (t *testing.T) {
 	}
 
 	a = []int{2, 3, 4, 5, 10}
-	if 12 != CalcMaxPerimeter(a){
+	if 12 != CalcMaxPerimeter(a) {
 		t.Errorf("最大周長が12ではない: %v", CalcMaxPerimeter(a))
 	}
 
 	a = []int{2, -3, -4, -5, -10}
-	if 0 != CalcMaxPerimeter(a){
+	if 0 != CalcMaxPerimeter(a) {
 		t.Errorf("最大周長が0ではない: %v", CalcMaxPerimeter(a))
 	}
 }

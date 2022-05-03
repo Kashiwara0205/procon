@@ -3,3 +3,6 @@ in:
 
 go_test:
 	docker exec -ti procon-app-1 bash -c "cd procon; go test -v ./..."
+
+go_fmt:
+	docker exec -ti procon-app-1 bash -c "cd procon; go fmt ./..."

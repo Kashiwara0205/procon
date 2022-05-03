@@ -4,19 +4,19 @@ import (
 	"math"
 )
 
-func RunAnts(antPositions []int, stickSize int, calcType int) Result{
+func RunAnts(antPositions []int, stickSize int, calcType int) Result {
 	antSize := len(antPositions)
 	ants := createAnts(antPositions, stickSize, antSize, calcType)
 
 	for i := 0; i < antSize; i++ {
-		for j := 0; j < stickSize; j++{
-			if isDrop( ants[i].Position(), stickSize ){
+		for j := 0; j < stickSize; j++ {
+			if isDrop(ants[i].Position(), stickSize) {
 				continue
 			}
 
-			if RIGHT == ants[i].Direction(){
+			if RIGHT == ants[i].Direction() {
 				ants[i].MoveRight()
-			}else{
+			} else {
 				ants[i].MoveLeft()
 			}
 		}
@@ -28,7 +28,7 @@ func RunAnts(antPositions []int, stickSize int, calcType int) Result{
 	return NewResult(cost, directions)
 }
 
-func calcCost(ants []Ant) int{
+func calcCost(ants []Ant) int {
 	var cost = 0
 
 	for _, ant := range ants {
@@ -40,19 +40,19 @@ func calcCost(ants []Ant) int{
 	return cost
 }
 
-func createDirections(ants []Ant) []int{
+func createDirections(ants []Ant) []int {
 	var directions []int
 	for _, ant := range ants {
-		directions = append( directions, ant.Direction() )
+		directions = append(directions, ant.Direction())
 	}
 
 	return directions
 }
 
-func isDrop(antPosition int, stickSize int) bool{
+func isDrop(antPosition int, stickSize int) bool {
 	// 右に落下
-	if antPosition >= stickSize{
-		return true 
+	if antPosition >= stickSize {
+		return true
 	}
 
 	// 左に落下
@@ -63,11 +63,11 @@ func isDrop(antPosition int, stickSize int) bool{
 	return false
 }
 
-func createAnts(antPositions []int, stickSize int, antSize int, calcType int)[]Ant{
+func createAnts(antPositions []int, stickSize int, antSize int, calcType int) []Ant {
 	var ants []Ant
 	for i := 0; i < antSize; i++ {
 		direction := LEFT
-		if antPositions[i] > int( math.Abs(float64(stickSize) / 2) ){
+		if antPositions[i] > int(math.Abs(float64(stickSize)/2)) {
 			direction = RIGHT
 		}
 
